@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "JS blockchain",
   "main": "index.js",
+  "scripts": {
+    "start": "pm2 startOrReload ecosystem.js --update-env && npm run logs",
+    "logs": "pm2 logs",
+    "kill": "pm2 flush && pm2 kill",
+    "flush": "pm2 flush"
+  },
   "repository": "https://github.com/justisGipson/blockchain",
   "author": "justisGipson",
   "license": "MIT",
@@ -13,7 +19,7 @@
     "express",
     "socket",
     "websocket"
-  ]
+  ],
   "dependencies": {
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
