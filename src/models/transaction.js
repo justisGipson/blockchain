@@ -1,16 +1,16 @@
 class Transaction {
-    constructor(sender, reciever, amount) {
+    constructor(sender, receiver, amount) {
         this.sender = sender
-        this.reciever = reciever
+        this.reciever = receiver
         this.amount = amount
         this.timestamp = Date.now()
     }
 
     getDetails() {
-        const { sender, reciever, amount, timestamp } = this
+        const { sender, receiver, amount, timestamp } = this
         return {
             sender,
-            reciever, 
+            receiver, 
             amount,
             timestamp
         }
@@ -18,7 +18,7 @@ class Transaction {
 
     parseTransaction(transaction) {
         this.sender = transaction.sender
-        this.reciever = transaction.reciever
+        this.receiver = transaction.receiver
         this.amount = transaction.amount
         this.timestamp = transaction.timestamp
     }
