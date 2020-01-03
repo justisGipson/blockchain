@@ -7,7 +7,7 @@ const socketListeners = (socket, chain) => {
     socket.on(SocketActions.ADD_TRANSACTION, (sender, receiver, amount) => {
         const transaction = new Transaction(sender, receiver, amount)
         chain.newTransaction(transaction)
-        console.info(`added transaction: ${JSON.stringify(transaction.getDetails(), null, '\t')}`)
+        console.info(`added transaction: ${JSON.stringify(transaction.getDetails, null, '\t')}`)
     })
 
     socket.on(SocketActions.END_MINING, (newChain) => {
@@ -15,7 +15,7 @@ const socketListeners = (socket, chain) => {
         process.env.BREAK = true
         const blockchain = new Blockchain()
         blockchain.parseChain(newChain)
-        if (blockchain.checkValidity() && blockchain.getLength() >= chain.getLength()) {
+        if (blockchain.checkValidity && blockchain.getLength >= chain.getLength) {
             chain.blocks = blockchain.blocks
         }
     })

@@ -43,7 +43,7 @@ app.post('/transaction', (req, res) => {
 })
 
 app.get('/chain', (req, res) => {
-    res.json(blockchain.toArray()).end()
+    res.json(blockchain.toArray).end()
 })
 
 io.on('connection', (socket) => {

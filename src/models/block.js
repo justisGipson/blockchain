@@ -42,7 +42,7 @@ class Block {
             proof,
             prevHash,
             timestamp,
-            transactions: transactions.map(transaction => transaction.getDetails())
+            transactions: transactions.map(transaction => transaction.getDetails)
         }
     }
 

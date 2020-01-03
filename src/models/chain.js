@@ -26,8 +26,8 @@ class Blockchain {
             console.info("block mining started...")
             const prevBlock = this.lastBlock
             process.env.BREAK = false
-            const block = new Block(prevBlock.getIndex() + 1, prevBlock.hashValue(), prevBlock.getProof(), this.currentTransactions)
-            const { proof, dontMine } = await generateProof(prevBlock.getProof())
+            const block = new Block(prevBlock.getIndex + 1, prevBlock.hashValue, prevBlock.getProof, this.currentTransactions)
+            const { proof, dontMine } = await generateProof(prevBlock.getProof)
             block.setProof(proof)
             this.currentTransactions = []
             if (dontMine !== true) {
@@ -49,10 +49,10 @@ class Blockchain {
         let prevBlock = blocks[0]
         for (let index = 1; index < blocks.length; index++) {
             const currentBlock = blocks[index]
-            if (currentBlock.getPrevBlockHash() !== prevBlock.hashValue()) {
+            if (currentBlock.getPrevBlockHash() !== prevBlock.hashValue) {
                 return false
             }
-            if (!isProofValid(prevBlock.getProof(), currentBlock.getProof())) {
+            if (!isProofValid(prevBlock.getProof, currentBlock.getProof)) {
                 return false
             }
             prevBlock = currentBlock
@@ -69,7 +69,7 @@ class Blockchain {
     }
 
     toArray() {
-        return this.blocks.map(block => block.getDetails())
+        return this.blocks.map(block => block.getDetails)
     }
 
     printBlocks() {
