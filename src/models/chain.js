@@ -49,7 +49,7 @@ class Blockchain {
         let prevBlock = blocks[0]
         for (let index = 1; index < blocks.length; index++) {
             const currentBlock = blocks[index]
-            if (currentBlock.getprevBlockHash() !== prevBlock.hashValue()) {
+            if (currentBlock.getPrevBlockHash() !== prevBlock.hashValue()) {
                 return false
             }
             if (!isProofValid(prevBlock.getProof(), currentBlock.getProof())) {

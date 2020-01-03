@@ -1,5 +1,6 @@
-const app = require('express')
-const bodyparser = require('body-parser')
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser')
 const httpServer = require('http').Server(app)
 const axios = require('axios')
 const io = require('socket.io')(httpServer)
@@ -14,7 +15,7 @@ const { PORT } = process.env
 
 const blockchain = new Blockchain(null, io)
 
-app.use(bodyparser.json())
+app.use(bodyParser.json())
 
 app.post('/nodes', (req, res) => {
     const { host, port } = req.body

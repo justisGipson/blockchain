@@ -4,7 +4,7 @@
   "description": "JS blockchain",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 startOrReload ecosystem.js --update-env && npm run logs",
+    "start": "pm2 startOrReload ecosystem.json --update-env && npm run logs",
     "logs": "pm2 logs",
     "kill": "pm2 flush && pm2 kill",
     "flush": "pm2 flush"
